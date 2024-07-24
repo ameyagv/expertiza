@@ -33,6 +33,7 @@ jobs:
         run: |
           echo "Checking if file exists and has content..."
           ls -l config/deploy_id_rsa_enc
+          cat config/deploy_id_rsa_enc
 
       - name: Decrypt SSH Key
         run: |
