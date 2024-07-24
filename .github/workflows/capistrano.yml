@@ -25,6 +25,15 @@ jobs:
         with:
           ruby-version: 2.4
           bundler-cache: true
+          
+      - name: Create Encrypted SSH Key File
+        run: echo "${{ secrets.ENC_RSA_KEY_CONTENT }}" > config/deploy_id_rsa_enc
+
+      - name: Verify File Exists and Check Contents
+        run: |
+          echo "Checking if file exists and has content..."
+          ls -l config/deploy_id_rsa_enc
+
       - uses: miloserdow/capistrano-deploy@master
         with:
           target: production # Defines the environment for the deployment
