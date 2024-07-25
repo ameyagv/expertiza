@@ -19,8 +19,6 @@ jobs:
   production:
     if: inputs.environment == 'production'
     runs-on: self-hosted
-    env:
-      RUNNER_TOOL_CACHE: /tmp/githubrunner-toolcache
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
