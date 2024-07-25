@@ -25,25 +25,12 @@ jobs:
         with:
           ruby-version: 2.4
           bundler-cache: true
-          
-      - name: Create Encrypted SSH Key File
-        run: echo "${{ secrets.ENC_RSA_KEY_CONTENT }}" > config/deploy_id_rsa_enc
-
-      - name: Verify File Exists and Check Contents
-        run: |
-          echo "Checking if file exists and has content..."
-          ls -l config/deploy_id_rsa_enc
-          cat config/deploy_id_rsa_enc
-
-      - name: Decrypt SSH Key
-        run: |
-          /usr/bin/openssl enc -d -aes-256-cbc -md sha512 -salt -in config/deploy_id_rsa_enc -out config/deploy_id_rsa -k "${{ secrets.ENC_RSA_KEY_VAL }}" -a -pbkdf2
-          chmod 600 config/deploy_id_rsa
+        
 
       - uses: miloserdow/capistrano-deploy@master
         with:
           target: production # Defines the environment for the deployment
-          # enc_rsa_key_val: ${{ secrets.ENCRYPTED_PRIVATE_KEY_PROD }}
+          enc_rsa_key_val: ${{ secrets.ENCRYPTED_PRIVATE_KEY_PROD }}
           deploy_key: ${{ secrets.DEPLOY_ENC_KEY }}
 
 # development and test jobs are identical - with different target environment and server keys
