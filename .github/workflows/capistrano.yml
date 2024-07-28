@@ -22,7 +22,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         
-
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.3
+          bundler-cache: true
+          
       - uses: miloserdow/capistrano-deploy@master
         with:
           target: production # Defines the environment for the deployment
