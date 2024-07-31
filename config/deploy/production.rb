@@ -48,7 +48,8 @@ set :ssh_options, {
   forward_agent: true,
   auth_methods: %w(publickey),
   user: 'agvaicha',
-  verify_host_key: :secure
+  verify_host_key: :secure,
+  config: false
 }
 # The server-based syntax can be used to override options:
 # ------------------------------------
@@ -60,6 +61,5 @@ server '152.7.176.86',
     forward_agent: true,
     auth_methods: %w(publickey),
     verify_host_key: :secure,
-    config: false,
-    term: 'dumb'
+    config: false
   }
