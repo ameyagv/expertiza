@@ -21,18 +21,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get install -y openjdk-11-jdk
-
-      - name: Set JAVA_HOME
-        run: echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))" >> $GITHUB_ENV
-
-      - name: Verify Java installation
-        run: |
-          java -version
-          javac -version
         
       - uses: ruby/setup-ruby@v1
         with:
