@@ -24,10 +24,15 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get install -y libmysqlclient-dev
-          sudo apt-get install -y libz-dev
-          echo 'export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"' >> $GITHUB_ENV
-          echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> $GITHUB_ENV
+          sudo apt-get install -y openjdk-11-jdk
+
+      - name: Set JAVA_HOME
+        run: echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))" >> $GITHUB_ENV
+
+      - name: Verify Java installation
+        run: |
+          java -version
+          javac -version
         
       - uses: ruby/setup-ruby@v1
         with:
