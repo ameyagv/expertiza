@@ -26,6 +26,8 @@ jobs:
         run: |
           sudo apt-get install -y libmysqlclient-dev
           sudo apt-get install -y libz-dev
+          echo 'export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"' >> $GITHUB_ENV
+          echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> $GITHUB_ENV
         
       - uses: ruby/setup-ruby@v1
         with:
