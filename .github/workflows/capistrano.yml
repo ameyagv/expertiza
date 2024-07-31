@@ -24,6 +24,10 @@ jobs:
 
       - name: Create mkdir symlink
         run: sudo ln -s /bin/mkdir /usr/bin/mkdir
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y libmysql-ruby libmysqlclient-dev
         
       - uses: ruby/setup-ruby@v1
         with:
