@@ -21,6 +21,9 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
+
+      - name: Create mkdir symlink
+        run: sudo ln -s /bin/mkdir /usr/bin/mkdir
         
       - uses: ruby/setup-ruby@v1
         with:
