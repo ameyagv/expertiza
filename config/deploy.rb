@@ -22,7 +22,7 @@ set :locals_rails_env, 'production'
 # lock '~> 3.10.1'
 
 set :application, 'expertiza'
-set :repo_url, 'https://github.com/expertiza/expertiza.git'
+set :repo_url, 'https://github.com/ameyagv/expertiza.git'
 set :rvm_ruby_version, '2.4'
 # Default branch is :main
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
