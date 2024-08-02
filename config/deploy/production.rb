@@ -43,23 +43,23 @@ role :db,  %w[agvaicha@152.7.176.86]
 #
 # Global options
 # --------------
-# set :ssh_options, {
-#   keys: %w(~/.ssh/id_rsa),
-#   forward_agent: true,
-#   auth_methods: %w(publickey),
-#   user: 'agvaicha',
-#   verify_host_key: :secure,
-#   config: false
-# }
+set :ssh_options, {
+  keys: %w(~/.ssh/id_rsa),
+  forward_agent: true,
+  auth_methods: %w(publickey),
+  user: 'agvaicha',
+  verify_host_key: :secure,
+  config: false
+}
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server '152.7.176.86',
-#   user: 'agvaicha',
-#   roles: %w{web app},
-#   ssh_options: {
-#     keys: %w(~/.ssh/id_rsa),
-#     forward_agent: true,
-#     auth_methods: %w(publickey),
-#     verify_host_key: :secure,
-#     config: false
-#   }
+server '152.7.176.86',
+  user: 'agvaicha',
+  roles: %w{web app},
+  ssh_options: {
+    keys: %w(~/.ssh/id_rsa),
+    forward_agent: true,
+    auth_methods: %w(publickey),
+    verify_host_key: :secure,
+    config: false
+  }
