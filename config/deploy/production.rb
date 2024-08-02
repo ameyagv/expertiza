@@ -44,7 +44,7 @@ role :db,  %w[agvaicha@152.7.176.86]
 # Global options
 # --------------
 set :ssh_options, {
-  keys: %w(~/.ssh/id_rsa),
+  keys: %w(~/.ssh/deploy_id_rsa),
   forward_agent: true,
   auth_methods: %w(publickey),
   user: 'agvaicha',
@@ -57,7 +57,7 @@ server '152.7.176.86',
   user: 'agvaicha',
   roles: %w{web app},
   ssh_options: {
-    keys: %w(~/.ssh/id_rsa),
+    keys: %w(~/.ssh/deploy_id_rsa),
     forward_agent: true,
     auth_methods: %w(publickey),
     verify_host_key: :secure,
