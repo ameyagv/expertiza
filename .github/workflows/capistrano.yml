@@ -26,19 +26,6 @@ jobs:
         with:
           ruby-version: 2.4
           bundler-cache: true
-
-      - name: Decrypt SSH Private Key
-        run: |
-          echo "${{ secrets.ENCRYPTED_PRIVATE_KEY }}" > config/deploy_id_rsa_enc
-          openssl enc -d -aes-256-cbc -md sha512 -salt -in config/deploy_id_rsa_enc -out config/deploy_id_rsa -k "${{ secrets.DEPLOY_KEY_PASSPHRASE }}" -a -pbkdf2
-          chmod 600 config/deploy_id_rsa
-        shell: bash
-
-      - name: Start SSH Agent and Add Key
-        run: |
-          eval "$(ssh-agent -s)"
-          ssh-add config/deploy_id_rsa
-        shell: bash
           
       - uses: miloserdow/capistrano-deploy@master
         with:
