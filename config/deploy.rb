@@ -66,6 +66,13 @@ set :keep_releases, 10
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
+# config/deploy.rb
+set :ssh_options, {
+  keys: %w(~/.ssh/id_rsa),
+  forward_agent: false,
+  auth_methods: %w(publickey)
+}
+
 set :passenger_in_gemfile, true
 set :passenger_restart_with_touch, true
 
